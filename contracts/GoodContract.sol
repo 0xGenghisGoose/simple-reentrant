@@ -16,7 +16,7 @@ contract GoodContract {
         (bool sent, ) = msg.sender.call{value: balances[msg.sender]}("");
         require(sent, "Failed to send Ether");
 
-        // this code is unreachable to reentrancy attack
+        // this code is unreachable due to reentrancy attack
         balances[msg.sender] = 0;
     }
 }
